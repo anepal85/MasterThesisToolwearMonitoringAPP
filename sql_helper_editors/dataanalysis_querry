@@ -1,0 +1,40 @@
+SELECT 
+       process_number, sum(correct_prediction) as process_nr_count
+  FROM toolwear_damage group by  process_number;
+
+-- select all image path names from dino_image of process number 7 of toolwear damage 
+select id, image_path, toolwear_damage_id from dino_image 
+where toolwear_damage_id in (select id from toolwear_damage where process_number == 7);
+
+--similar thing using join 
+select t.id, d.image_path from toolwear_damage as t 
+join dino_image as d on t.id = d.toolwear_damage_id where t.process_number == 7;
+
+
+--- list of ids who have lower than average damage_down 
+SELECT id,
+       damage_down,
+       process_number
+  FROM toolwear_damage AS t
+ WHERE damage_down <= (
+                       SELECT AVG(damage_down) 
+                         FROM toolwear_damage
+                        WHERE process_number = t.process_number
+                   );
+                   
+SELECT t.id,
+       t.damage_down,
+       t.process_number,
+       avg_dmg.avg_damage_down
+  FROM toolwear_damage AS t
+  JOIN (
+           SELECT process_number, AVG(damage_down) as avg_damage_down
+             FROM toolwear_damage
+            GROUP BY process_number
+       ) AS avg_dmg
+    ON t.process_number = avg_dmg.process_number
+ WHERE t.damage_down <= avg_dmg.avg_damage_down;
+
+
+select * from toolwear_damage; 
+select * from dino_image; 

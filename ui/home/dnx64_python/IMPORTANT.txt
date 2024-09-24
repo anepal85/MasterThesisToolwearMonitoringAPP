@@ -1,0 +1,7 @@
+You must have the 64-bit Dino-Lite SDK installed before you can use the Python module. 
+
+If you’re located in North or South America (excluding Brazil), you can request the SDK from Dino-Lite US here.
+https://www.dinolite.us/features/dinolite-software
+
+If you’re located elsewhere, you can find your closest distributor and request the SDK.
+https://www.dino-lite.com/contact01.php

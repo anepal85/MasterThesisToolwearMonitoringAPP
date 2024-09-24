@@ -1,0 +1,27 @@
+SELECT *
+  FROM user;
+  
+update user 
+set is_admin = True  
+where id = 1; 
+
+select * from ml_model;
+
+select * from toolwear_damage;
+
+select * from user_toolwear;
+
+select * from completed_process_number;
+
+select * from dino_image;
+--delete from dino_image 
+
+SELECT DISTINCT werkstoff
+FROM user_toolwear
+
+
+--delete from user_toolwear where id!=1
+
+--delete from ml_model where id != 1
+
+
